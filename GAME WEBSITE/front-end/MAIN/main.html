@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Care - Holistic Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+    --primary: #0a192f;
+    --secondary: #112240;
+    --accent: #64ffda;
+    --light: #2a2d3b;
+    --dark: #020c1b;
+    --text: #ccd6f6;
+    --text-secondary: #8892b0;
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--text);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+        
+        nav a.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: var(--text);
+            padding: 5rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            color: var(--text-secondary);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-box {
+            background: var(--secondary);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-box h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .feature-box p {
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+        
+        .nav-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent), #52d9c0);
+            color: var(--primary);
+            margin-top: 1rem;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: var(--text);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .social-links {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Accessibility improvements */
+        a:focus, button:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        /* Animation for subtle interactivity */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feature-box {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .feature-box:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .feature-box:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .feature-box {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1><span>Mind</span>Care</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="main.html" class="active">Home</a></li>
+                    <li><a href="../SOS/index.html">SOS</a></li>
+                    <li><a href="voice.html">Medication reminder</a></li>
+                    <li><a href="mindfull.html">Mood Tracking</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Holistic Wellness for Mind and Soul</h2>
+            <p>Discover a healthier, happier you with our holistic wellness programs.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="features">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-gamepad" alt="Gamepad Icon"></i>
+                </div>
+                <h3>TILE-MATCHING</h3>
+                <p>Improve your cognitive skills with our tile-matching game.</p>
+                <button class="nav-btn" onclick="window.location.href='../tail_matching/index.html'">Tile Matching</button>
+            </div>
+            <div class="feature-box"> 
+                <div class="feature-icon">
+                    <i class="fas fa-brain" alt="Brain Icon"></i>
+                </div>
+                <h3>Critical Thinking</h3>
+                <p>Enhance your critical thinking skills with our interactive exercises.</p>
+                <button class="nav-btn" onclick="window.location.href='../criticalthinking/index.html'">Critical Thinking</button>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-memory" alt="Memory Icon"></i>
+                </div>
+                <h3>Memory Game</h3>
+                <p>Improve your memory with our interactive memory game.</p>
+                <button class="nav-btn" onclick="window.location.href='../Memory/index.html'">Memory Game</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 MindCare. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
